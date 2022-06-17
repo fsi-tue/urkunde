@@ -4,7 +4,7 @@ Diese LaTeX-Vorlage kann zum Erstellen der FSI Lehrpreis-Urkunde und anderen Urk
 
 ## Voraussetzungen
 - $\LaTeX$-Distribution (auf Windows: MikTex, auf Mac/Linux: TeXLive)
-- TeX-Pakete `geometry`, `tikz`, `anyfontsize`, `graphicx` `roboto`, `fontenc, `ngerman` und `xcolor`
+- TeX-Pakete `geometry`, `tikz`, `anyfontsize`, `graphicx` `roboto`, `fontenc`, `ngerman` und `xcolor`
 - Editor des Vertrauens
 
 ## Konfiguration des Dokuments
