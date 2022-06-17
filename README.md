@@ -23,3 +23,14 @@ Hierzu ist jeweils mit `\newcommand` ein eigenes Kommando definiert:
 - Das Denker-Wasserzeichen stammt ursprünglich aus der Illustrator-Version von @octobi.
 - Die Positionierung des Urkunden-Headers (vor allem der Linie unter dem Wort "Urkunde") basiert auf dem Denker-Wasserzeichen, welches selbst einen Absatz im oberen Bereich hat.
 - Wird der Inhalt der Denker-Grafik geändert, muss der Abstand in der Urkunden-Zeile ebenfalls geändert werden, ansonsten ist die Linie nicht mehr bündig.
+
+
+## Exkurs: Unterschrift transparent machen mit GIMP
+- Soll die Unterschrift digital verwendet werden, diese am Besten auf dem Tablet schreiben und als PNG-Grafik exportieren.
+- Meistens ist hier dann jedoch noch der weiße Hintergrund vorhanden, was wir nicht haben wollen. 
+- Hintergrund kann mit GIMP unter Ebene→Transparenz→Farbe nach Alpha... entfernt werden.
+	- ggf. weißes Farbfeld anklicken und mit der Pipette die Hintergrundfarbe auswählen, falls sie nicht rein weiß ist.
+- Anschließend Grafik beschneiden, sodass möglichst wenig Freiraum um die Unterschrift vorhanden ist.
+- Als PNG im `img`-Verzeichnis abspeichern und Dateinamen in der `\unterschriftgrafik`-Zeile anpassen.
+
+![Hintergrund in Transparenz umwandeln mit GIMP](img/gimp_alpha.png)
