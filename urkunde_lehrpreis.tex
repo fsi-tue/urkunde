@@ -1,0 +1,93 @@
+\documentclass{article}
+\usepackage[a4paper,top=0.5cm, bottom=2cm, left=0cm, right=0cm]{geometry}
+\usepackage{tikz}
+\usepackage{anyfontsize}
+\usepackage{graphicx}
+\usepackage[sfdefault,thin]{roboto}  % texlive-roboto
+\usepackage[T1]{fontenc}
+\usepackage{lipsum}
+\usepackage{ngerman}
+\usepackage{xcolor}
+
+\AddToHook{shipout/background}{%
+	\put (0cm,-\paperheight){\includegraphics[width=\paperwidth,height=\paperheight,]{img/bg.pdf}}%
+}
+
+\newcommand{\denker}{
+\tikz[remember picture,overlay] \node[opacity=0.3,inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{img/denker.pdf}};
+}
+
+\newcommand{\unifakultaet}{
+	\centering
+	\Large
+	\color{\headercolor}
+	Eberhard Karls Universität Tübingen\\
+	Mathematisch-Naturwissenschaftliche Fakultät\\
+	Wilhelm-Schickard-Institut für Informatik
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% DETAILS FÜR DIE URKUNDE %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Farbe des Headers (Urkunden-Ueberschrift und Uni-Krams)
+% Muss eine valide xcolor-Farbe sein.
+\newcommand{\headercolor}{gray}
+
+%% An wen soll die Urkunde ausgestellt werden?
+\newcommand{\traeger}{\Huge\textbf{Prof. Dr. Foo Bar}}
+
+%% Wer ueberreicht die Urkunde?
+\newcommand{\ueberreicht}{Erika Mustermann}
+
+%% Falls die Unterschrift digital vorhanden ist (als transparentes PNG oder PDF), hier einbinden, ansonsten auskommentiert lassen
+%% weißen Hintergrund entfernen mit GIMP: Ebene->Transparenz->Farbe nach Alpha
+\newcommand{\unterschriftgrafik}{\includegraphics[width=\linewidth]{img/mustermann.png}}
+
+%% Versatz fuer die Unterschrift, z.B. wenn wegen "g" im Namen der Text nicht auf der Linie ist. Je negativer, desto weiter unten ist die Unterschrift.
+\newcommand{\unterschriftversatz}{\vspace*{-3mm}}
+
+%% Persoenliche Widmung hier hin
+\newcommand{\widmung}{
+	Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. 
+}
+
+%% Schriftgroesse der Widmung (aendern, falls Text zu lang)
+\newcommand{\widmungsize}{\Large}
+
+
+\begin{document}
+	\thispagestyle{empty}
+	\denker % Denker kann ausgeschaltet werden, wenn der Hintergrund plainer sein soll
+	\centering
+	\parbox{0.8\textwidth}{
+		\centering
+		\vspace*{7pt} % Hier mit dem Versatz spielen, wenn Linie nicht mehr mit dem Absatz zusammenpasst
+		{\color{\headercolor}\fontsize{80pt}{0pt}\fontseries{sb}\selectfont Urkunde}
+		\vspace*{-0.4pt}
+		\color{\headercolor} \hrule height 0.5pt 
+		\vspace*{5pt}
+		{\color{\headercolor}\fontsize{24pt}{0pt}\fontseries{sb}\selectfont der Fachschaft Informatik}	
+	}%
+	\vspace*{1cm}
+	\parbox{0.7\textwidth}{\unifakultaet}\\
+	\vfill
+	\begin{center}
+	\huge Für herausragendes Engagement\\ in der Lehre am Wilhelm-Schickard-Institut wird \\
+	\vspace*{1cm}
+	\traeger \\
+	\vspace*{1cm}
+	\huge der Lehrpreis der Fachschaft Informatik verliehen.
+	\vfill
+	\parbox{0.9\textwidth}{\widmungsize\centering\widmung} 
+	\vfill 
+	\huge Tübingen, den \today \\
+	\vspace*{2cm}
+	\ifdefined\unterschriftgrafik
+		\parbox{0.4\textwidth}{\unterschriftgrafik}\\
+		\unterschriftversatz
+	\fi
+	\makebox[0.4\textwidth]{\dotfill}\\
+	\normalsize überreicht durch \ueberreicht
+	\end{center}
+\end{document}
