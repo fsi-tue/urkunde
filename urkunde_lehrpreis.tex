@@ -9,14 +9,18 @@
 \usepackage{ngerman}
 \usepackage{xcolor}
 
+
+% "untere" Hintergrundgrafik
 \AddToHook{shipout/background}{%
 	\put (0cm,-\paperheight){\includegraphics[width=\paperwidth,height=\paperheight,]{img/bg.pdf}}%
 }
 
+% Denker-Wasserzeichen, kann im Dokument selbst auskommentiert werden
 \newcommand{\denker}{
 \tikz[remember picture,overlay] \node[opacity=0.3,inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{img/denker.pdf}};
 }
 
+% Das ist eine Universität, hier wird universitiert!
 \newcommand{\unifakultaet}{
 	\centering
 	\Large
